@@ -1,0 +1,157 @@
+/* 🌌 Background with Dark Gradient */
+.header {
+    width: 100%;
+    background-color: transparent;
+    padding: 15px 20px;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 📌 Top Header - Zep-Like Structure */
+.top-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* 🔹 Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+/* 🔍 Search Bar */
+.search_bar {
+    flex: 1;
+    max-width: 500px;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: white;
+    border: none;
+    font-size: 14px;
+}
+
+/* 🔗 Navbar Links */
+.top-header div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-header a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.top-header a:hover {
+    color: #62b6ff; /* Light blue hover */
+}
+
+/* 🚀 Dashboard Button */
+.dashboard-header button {
+    background: linear-gradient(to right, #ff4d79, #ff78b5);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dashboard-header button:hover {
+    background: linear-gradient(to right, #ff78b5, #ff4d79);
+}
+
+.bottom-header {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    gap: 30px;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-left: 20px; /* Adjust as needed */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 🔗 Bottom Header Links - Remove Underline */
+.bottom-header a {
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+    text-decoration: none; /* Removes underline */
+    transition: 0.3s;
+}
+
+.bottom-header a:hover {
+    color: #62b6ff;
+}
+
+/* 🔹 Responsive Fixes */
+@media (max-width: 768px) {
+    .top-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .search_bar {
+        max-width: 100%;
+    }
+
+    
+    .bottom-header {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding-left: 0;
+    }
+    
+    
+}
+/* Default Logo Styling */
+.logo h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Hover Effect */
+  .logo h2:hover {
+    background: linear-gradient(90deg, #66a6ff, #c36bff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Underline Effect */
+  .logo h2::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, #66a6ff, #c36bff);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  /* Expand Underline on Hover */
+  .logo h2:hover::after {
+    width: 100%;
+  }
+  
