@@ -1,0 +1,193 @@
+.right-sidebar {
+  width: 220px;
+  position: fixed; /* Change from relative to fixed */
+  right: 0; /* Add this */
+  top: 70px; /* Adjust this value based on your header height */
+  height: calc(100vh - 70px); /* Calculate height based on viewport minus header */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  padding-right: 20px; /* Add some padding from the window edge */
+  /* padding-top: 20px ; */
+}
+
+.right-sidebar-container {
+  padding: 0.75rem 0.5rem; /* Reduced padding */
+  transition: transform 0.2s ease;
+}
+
+.right-sidebar-container:hover {
+  transform: translateY(-2px); /* Less pronounced effect */
+}
+
+.right-sidebar-title {
+  margin: 0 0 0.75rem; /* Reduced margin */
+  padding: 0 0 0.5rem; /* Reduced padding */
+  font-size: 0.85rem; /* Smaller font */
+  font-weight: 600;
+  color: #e1e1e1;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.right-sidebar-nav {
+  padding: 0.15rem 0; /* Reduced padding */
+}
+
+.right-sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem; /* Reduced gap */
+}
+
+.right-sidebar-item {
+  margin: 0;
+}
+
+.right-sidebar-link {
+  display: block;
+  padding: 0.4rem 0.5rem; /* Smaller padding */
+  font-size: 0.8rem; /* Smaller font */
+  color: #c0c0c0;
+  border-radius: 4px; /* Smaller radius */
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 1px solid transparent; /* Thinner border */
+}
+
+.right-sidebar-link:hover {
+  color: #ffffff;
+  background-color: rgba(0, 123, 255, 0.1);
+  text-decoration: none;
+  transform: translateX(2px); /* Smaller movement */
+}
+
+.right-sidebar-link-active {
+  color: #ffffff;
+  background-color: rgba(0, 86, 178, 0.97);
+  border-left: 3px solid var(--nav-active); /* Thinner border */
+  font-weight: 500;
+}
+
+/* New styles for nested menu items */
+.right-sidebar-sublist {
+  list-style: none;
+  padding-left: 1.2rem;
+  margin: 0.2rem 0 0.2rem 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem; /* Even smaller gap for subitems */
+  /* border-left: 1px dashed rgba(255, 255, 255, 0.1); Subtle connector line */
+}
+
+.right-sidebar-subitem {
+  margin: 0;
+}
+
+.right-sidebar-sublink {
+  display: block;
+  padding: 0.3rem 0.4rem; /* Even smaller padding */
+  font-size: 0.75rem; /* Even smaller font */
+  color: #b0b0b0;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.right-sidebar-sublink:hover {
+  color: #ffffff;
+  background-color: rgba(0, 123, 255, 0.08);
+  text-decoration: none;
+  transform: translateX(2px);
+}
+
+.right-sidebar-sublink-active {
+  color: #ffffff;
+  background-color: rgba(0, 123, 255, 0.08);
+  font-weight: 500;
+  position: relative;
+  border-left: 3px solid var(--nav-active);
+}
+
+.right-sidebar-sublink-active::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  width: 6px;
+  height: 1px;
+}
+
+/* Scrollbar styling for the right sidebar */
+.right-sidebar::-webkit-scrollbar {
+  width: 3px; /* Thinner scrollbar */
+}
+
+.right-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.right-sidebar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.right-sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Modify page wrapper to properly display content with sidebar */
+.page-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem; /* Reduced gap */
+  margin-right: 240px; /* Add margin to prevent content from going under sidebar */
+}
+
+.page-content {
+  flex: 1;
+  max-width: 820px; /* Slightly increased to compensate for smaller sidebar */
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .right-sidebar {
+    width: 200px; /* Even smaller on medium screens */
+  }
+  .page-wrapper {
+    margin-right: 220px;
+  }
+}
+
+@media (max-width: 1219px) {
+  .right-sidebar {
+    display: none;
+  }
+  .page-wrapper {
+    margin-right: 0;
+  }
+  
+  .page-content {
+    max-width: 100%;
+  }
+}
+
+/* Animation for when sections become active - more subtle */
+.right-sidebar-link-active {
+  animation: activateLink 0.3s ease forwards;
+}
+
+@keyframes activateLink {
+  from {
+    border-left-color: transparent;
+    background-color: transparent;
+  }
+  to {
+    border-left-color: var(--nav-active);
+    background-color: rgba(0, 123, 255, 0.08);
+  }
+}

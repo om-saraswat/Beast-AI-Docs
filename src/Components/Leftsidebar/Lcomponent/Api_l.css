@@ -1,0 +1,202 @@
+.api-ref-leftbar-api-sidebar {
+  padding: 0.5rem;
+}
+
+.api-ref-leftbar-api-title {
+  margin: 0.5rem 0 1rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e1e1e1;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.api-ref-leftbar-api-overview {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  color: #c0c0c0;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.api-ref-leftbar-api-overview:hover {
+  color: #ffffff;
+  background-color: rgba(0, 123, 255, 0.1);
+  text-decoration: none;
+}
+
+.api-ref-leftbar-api-overview.active {
+  color: #ffffff;
+  background-color: rgba(0, 123, 255, 0.2);
+  position: relative;
+}
+
+.api-ref-leftbar-api-overview.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--nav-active);
+  border-radius: 0 2px 2px 0;
+  text-decoration: none;
+}
+
+.api-ref-leftbar-overview-icon {
+  margin-right: 0.75rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.api-ref-leftbar-overview-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.api-ref-leftbar-api-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.api-ref-leftbar-api-category {
+  border-radius: 8px;
+  background-color: rgba(30, 30, 33, 0.4);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.api-ref-leftbar-api-category:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 123, 255, 0.1);
+  text-decoration: none;
+}
+
+.api-ref-leftbar-api-category-header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  cursor: pointer;
+  color: #e1e1e1;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.api-ref-leftbar-api-category-header:hover {
+  background-color: rgba(0, 123, 255, 0.1);
+  text-decoration: none;
+}
+
+.api-ref-leftbar-api-category.active .api-ref-leftbar-api-category-header {
+  background-color: rgba(0, 123, 255, 0.15);
+}
+
+.api-ref-leftbar-api-category-icon {
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+  color: var(--nav-active);
+  display: flex;
+  align-items: center;
+}
+
+.api-ref-leftbar-api-category-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.api-ref-leftbar-api-category-expand {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.api-ref-leftbar-api-endpoints {
+  padding: 0.5rem;
+  animation: apiSlideDown 0.3s ease forwards;
+}
+
+@keyframes apiSlideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 800px;
+    opacity: 1;
+  }
+}
+
+.api-ref-leftbar-api-endpoint {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 0.75rem;
+  margin: 0.25rem 0;
+  color: #c0c0c0;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.api-ref-leftbar-api-endpoint:hover {
+  color: #ffffff;
+  background-color: rgba(0, 123, 255, 0.1);
+  text-decoration: none;
+}
+
+
+.api-ref-leftbar-api-endpoint.active {
+  color: #ffffff;
+  background-color: rgba(0, 123, 255, 0.2);
+  position: relative;
+}
+
+.api-ref-leftbar-api-endpoint.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: var(--nav-active);
+  border-radius: 0 2px 2px 0;
+}
+
+.api-ref-leftbar-endpoint-method {
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  margin-right: 0.6rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* Method colors */
+.api-ref-leftbar-endpoint-method.method-get {
+  background-color: rgba(97, 175, 254, 0.2);
+  color: #61affe;
+}
+
+.api-ref-leftbar-endpoint-method.method-post {
+  background-color: rgba(73, 204, 144, 0.2);
+  color: #49cc90;
+}
+
+.api-ref-leftbar-endpoint-method.method-put {
+  background-color: rgba(252, 161, 48, 0.2);
+  color: #fca130;
+}
+
+.api-ref-leftbar-endpoint-method.method-del {
+  background-color: rgba(249, 62, 62, 0.2);
+  color: #f93e3e;
+}

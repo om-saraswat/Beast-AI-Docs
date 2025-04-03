@@ -1,0 +1,192 @@
+.code-container {
+  background-color: rgba(16, 16, 18, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  max-width: 100%;
+  margin: 1.5rem 0;
+  animation: fadeIn 0.5s ease-in-out;
+  position: relative;
+}
+
+/* Gradient Shadow Effect */
+.code-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(96, 165, 250, 0) 0%,
+    rgba(96, 165, 250, 0.8) 50%,
+    rgba(96, 165, 250, 0) 100%
+  );
+  opacity: 0.3;
+  z-index: -1;
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+/* Tab Bar */
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid rgba(29, 27, 27, 0.1);
+  background: rgba(25, 25, 28, 0.8);
+  padding: 0.5rem;
+  gap: 0.5rem;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Tab Buttons */
+.tab-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  color: #c0c0c0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease;
+  position: relative;
+}
+
+.tab-button:hover {
+  color: #ffffff;
+}
+
+/* Active Tab */
+.tab-button.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Animated Underline for Active Tab */
+.tab-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  width:0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(96, 165, 250, 0) 0%,
+    rgba(96, 165, 250, 0.8) 50%,
+    rgba(96, 165, 250, 0) 100%
+  );
+    border-radius: 2px;
+  transform: translateX(-50%);
+  animation: spreadLine 0.4s ease forwards;
+
+  border-radius: 2px;
+  opacity: 1;
+  
+}
+
+/* Copy Button */
+.copy-button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease;
+}
+
+.copy-button:hover {
+  opacity: 0.8;
+}
+
+/* Code Block */
+.code-block {
+  padding: 1rem;
+  overflow-x: auto;
+  background: #22222589;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Prism Code Styling */
+.code-block pre {
+  margin: 0;
+  padding: 1rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background-color: #10131546;
+}
+
+/* Scrollbar Styling */
+.code-block::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-block::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.code-block::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+.code-block::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Underline animation */
+@keyframes spreadLine {
+  from {
+    width: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  to {
+    width: 100%;
+    left: 0;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .tab-button {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .code-block {
+    padding: 0.75rem;
+  }
+}
