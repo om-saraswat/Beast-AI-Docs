@@ -18,17 +18,13 @@ import MCPServer from "./Integrations/MCPServer";
 import Overview_integer from "./Integrations/Overview_integration";
 import VercelAISDK from "./Integrations/VercelAISDK";
 import AddMemories from "./Api-reference/AddMemories";
-import CreateEntity from "./Api-reference/CreateEntity";
-import DeleteEntity from "./Api-reference/DeleteEntity.jsX";
-import EntitiesAPIs from "./Api-reference/EntitiesAPIs";
-import GetEntity from "./Api-reference/GetEntity";
+
 import GetMemoriesV1Deprecated from "./Api-reference/GetMemoriesV1Deprecated";
 import GetMemoriesV2 from "./Api-reference/GetMemoriesV2";
 import MemoryHistory from "./Api-reference/MemoryHistory";
 import Overview_api_reference from "./Api-reference/Overview_api_reference";
 import SearchMemoriesV1Deprecated from "./Api-reference/SearchMemoriesV1Deprecated";
 import SearchMemoriesV2 from "./Api-reference/SearchMemoriesV2";
-import UpdateEntity from "./Api-reference/UpdateEntity";
 import ContributionDevelopment from "./Documentation/ContributionDevelopment";
 import ContributionDocumentation from "./Documentation/ContributionDocumentation";
 import CustomFactExtPrompt from "./Documentation/CustomFactExtPrompt";
@@ -59,13 +55,10 @@ import AddMember from "./Api-reference/AddMember"
 import CreateOrganization from "./Api-reference/CreateOrganization"
 import CreateWebhook from "./Api-reference/CreateWebhook"
 import DeleteOrganization from "./Api-reference/DeleteOrganization"
-import DeleteUser from "./Api-reference/DeleteUser"
 import GetMembers from "./Api-reference/GetMembers"
 
 import GetOrganizations from "./Api-reference/GetOrganizations"
-import GetUser from "./Api-reference/GetUser"
 import Getwebhook from "./Api-reference/Getwebhook"
-import OrganizationsAPIs from "./Api-reference/OrganizationsAPIs"
 import UpdateWebhook from "./Api-reference/UpdateWebhook"
 import DeleteWebhOOK from "./Api-reference/DeleteWebhook";
 import GetMemoryExport from "./Api-reference/GetMemoryExport"
@@ -117,18 +110,14 @@ export default {
   Overview_integer,
   VercelAISDK,
   AddMemories,
-  CreateEntity,
-  DeleteEntity,
-  EntitiesAPIs,
-  GetEntity,
+  
   GetMemoriesV1Deprecated,
   GetMemoriesV2,
   MemoryHistory,
   Overview_api_reference,
   SearchMemoriesV1Deprecated,
   SearchMemoriesV2,
-  UpdateEntity,
-  ContributionDevelopment,
+    ContributionDevelopment,
   ContributionDocumentation,
   CustomFactExtPrompt,
   EmbeddedModel,
@@ -157,12 +146,11 @@ export default {
   CreateOrganization,
   CreateWebhook,
   DeleteOrganization,
-  DeleteUser,
+ 
   DeleteWebhOOK,
   GetMembers,
-  GetUser,
+  
   Getwebhook,
-  OrganizationsAPIs,
   UpdateWebhook,
   GetOrganizations,
   GetMemoryExport,

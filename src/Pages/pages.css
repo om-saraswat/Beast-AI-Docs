@@ -1,0 +1,14 @@
+/* Ensure content does not overlap with the right sidebar */
+.content-area {
+    max-width: 850px; /* Keeps content constrained */
+    padding-right: 20px; /* Adds space before the sidebar */
+  }
+  
+  /* Ensure API method box does not extend too far */
+  .method-box {
+    max-width: 800px; /* Keeps API boxes aligned with content */
+  }
+  
+  /* Prevent code blocks from touching the right sidebar */
+  
+  

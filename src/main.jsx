@@ -244,7 +244,7 @@ const router = createBrowserRouter([
       },
       {
         path: "integrations",
-        element: <Navigate to="overview" replace />,
+        element: <Integrations />,
         children:[{
             path: "overview",
             element:<Overview_integration/>

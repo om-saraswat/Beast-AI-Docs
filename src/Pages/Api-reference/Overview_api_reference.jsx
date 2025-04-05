@@ -1,5 +1,4 @@
 import React from 'react'
-import '../pages.css'
 
 function Overview_api_reference() {
   return (
