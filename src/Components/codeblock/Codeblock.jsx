@@ -7,65 +7,113 @@ import "prismjs/components/prism-java";
 import "prismjs/components/prism-bash";
 import "prismjs/components/prism-markup";
 import "prismjs/components/prism-clike";
-import { Clipboard, Check } from "lucide-react"; // Import checkmark icon
+import { Clipboard, Check } from "lucide-react";
 import "./codeblock.css";
 
-const codeSnippets = {
-  bash: `npm install recallrai`,
+const defaultCodeExamples = {
+  JavaScript: `// Example JavaScript code
+const greeting = "Hello World";
+console.log(greeting);
+  
+function add(a, b) {
+  return a + b;
+}`,
 
-  JavaScript: `fetch("https://api.example.com/data", {
-    headers: { "Authorization": "Token <api-key>" }
-  }).then(response => response.text()).then(console.log);`,
+  Python: `# Example Python code
+greeting = "Hello World"
+print(greeting)
 
-  cURL: `curl -H "Authorization: Token <api-key>" https://api.example.com/data`,
+def add(a, b):
+    return a + b`,
 
-  Java: `HttpResponse<String> response = Unirest.get("https://api.example.com/data")
-    .header("Authorization", "Token <api-key>")
-    .asString();`,
+  Java: `// Example Java code
+public class Main {
+    public static void main(String[] args) {
+        String greeting = "Hello World";
+        System.out.println(greeting);
+    }
+    
+    public static int add(int a, int b) {
+        return a + b;
+    }
+}`,
+
+  bash: `# Example bash script
+echo "Hello World"
+NAME="User"
+echo "Welcome $NAME!"`,
 };
 
-const Codeblock = () => {
-  const [activeTab, setActiveTab] = useState("JavaScript");
+// Create a global state to track the active tab
+const globalState = {
+  activeTab: "JavaScript",
+  listeners: new Set(),
+};
+
+// Function to update all code blocks
+const updateGlobalTab = (newTab) => {
+  globalState.activeTab = newTab;
+  globalState.listeners.forEach(listener => listener(newTab));
+};
+
+const Codeblock = ({ code, defaultLanguage = "JavaScript" }) => {
+  const [localActiveTab, setLocalActiveTab] = useState(defaultLanguage);
   const [copied, setCopied] = useState(false);
+
+  // Get the appropriate code to display
+  const displayCode = code || defaultCodeExamples[localActiveTab];
+
+  useEffect(() => {
+    // Add listener for this instance
+    const listener = (newTab) => {
+      setLocalActiveTab(newTab);
+    };
+    globalState.listeners.add(listener);
+
+    // Cleanup listener on unmount
+    return () => {
+      globalState.listeners.delete(listener);
+    };
+  }, []);
 
   useEffect(() => {
     if (window.Prism) {
       window.Prism.highlightAll();
     }
-  }, [activeTab]);
+  }, [localActiveTab]);
+
+  const handleTabClick = (tab) => {
+    updateGlobalTab(tab);
+  };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(codeSnippets[activeTab]);
+    navigator.clipboard.writeText(displayCode);
     setCopied(true);
-    setTimeout(() => setCopied(false), 1500); // Reset after 1.5s
+    setTimeout(() => setCopied(false), 1500);
   };
 
   return (
     <div className="code-container">
-      {/* Tabs */}
       <div className="tab-bar">
         <div className="tab-buttons">
-          {Object.keys(codeSnippets).map((lang) => (
+          {['JavaScript', 'Python', 'Java', 'bash'].map((lang) => (
             <button
               key={lang}
-              className={`tab-button ${activeTab === lang ? "active" : ""}`}
-              onClick={() => setActiveTab(lang)}
+              className={`tab-button ${localActiveTab === lang ? "active" : ""}`}
+              onClick={() => handleTabClick(lang)}
             >
               {lang}
             </button>
           ))}
         </div>
-        {/* Clipboard Button */}
         <button className="copy-button" onClick={handleCopy}>
           {copied ? <Check size={18} strokeWidth={3} /> : <Clipboard size={18} strokeWidth={1.5} />}
         </button>
       </div>
-
-      {/* Code Block */}
       <div className="code-block">
         <pre>
-          <code className={`language-${activeTab.toLowerCase()}`}>
-            {codeSnippets[activeTab]}
+          <code className={`language-${localActiveTab.toLowerCase()}`}>
+            {displayCode}
           </code>
         </pre>
       </div>

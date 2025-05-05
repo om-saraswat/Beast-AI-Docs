@@ -1,7 +1,8 @@
 import React from "react";
 import Codeblock from "../../Components/codeblock/Codeblock";
 import Rightside from "../../Components/Right side bar/Rightside";
-const Overview_example = () => (
+const Overview_example = () => {
+  return(
   <div className="page-container">
     <div className="content-area">
       <section id="overview" className="section">
@@ -92,8 +93,8 @@ const Overview_example = () => (
         <Codeblock code={`const multimodalAI = new MultiAI(); multimodalAI.processContent();`} />
       </section>
     </div>
-    <Rightside menuItems={menuItems} />
+    <Rightside  />
   </div>
 );
-
+}
 export default Overview_example;
